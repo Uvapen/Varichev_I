@@ -17,21 +17,71 @@ var employees = [{"name":"Alex","surname":"Yavkin","position":"sr. engineer","de
 	department: 'UX'
 }
 
-function yourFunction(employees) {
+function yourFunction(employees) 
+{
   const result = [];
 	/* Write your code here */
+	for	(let i = 0; i < employees.length; i++)
+	{
+		if(employees[i].salary > 15000 )
+		{
+			if(employees[i].position = "GUI")
+			{
+				result.push(employees[i])
+			}
+		}
+	}
+	result.sort(function(a,b)
+	{
+		return new Date(a.birthday) - new Date(b.birthday);
+	})
+
+		
   return result;
+ 
 }
 
- // should show the result
+function myFunction(employees)
+{	
+	const resultFin = [];
+	const resultName = [];
+	for(let i = 0; i < employees.length; i++)
+	{
+		if(employees[i].gender == "female")
+		{
+			resultName.push(employees[i])
+		}
+	}
+	resultName.sort(function(a,b)
+	{
+		if ( a.name < b.name ) return -1;
+		if ( a.name < b.name ) return 1;
+		
+	})
+	for(let i = 0; i < resultName.length-1; i++)
+	{
+		if(resultName[i].name != resultName[i+1].name)
+		{
+			resultFin.push(resultName[i])
+		}
+
+	}
+	if(resultFin[resultFin.length-1] != resultName[resultName.length-1])
+	{
+		resultFin.push(resultName[resultName.length-1])
+	}
+	return resultFin;
+}
+ // should show the result */
 console.log(yourFunction(employees));
+console.log(myFunction(employees));
 
 
 
 /**
  * Example function
  * Finds employees who has max salaries
- */
+ 
 function exampleFunction(employees) {
 	var maxSalary = 10000;
 	for (let i = 0; i < employees.length; i++) {
@@ -49,4 +99,4 @@ function exampleFunction(employees) {
 }
 
 // uncomment to observe example
-console.log(exampleFunction(employees));
+console.log(exampleFunction(employees)); */
