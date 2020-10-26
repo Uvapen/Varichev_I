@@ -19,24 +19,15 @@ var employees = [{"name":"Alex","surname":"Yavkin","position":"sr. engineer","de
 
 function yourFunction(employees) 
 {
-  const result = [];
-	/* Write your code here */
-	for	(let i = 0; i < employees.length; i++)
-	{
-		if(employees[i].salary > 15000 )
-		{
-			if(employees[i].position = "GUI")
-			{
-				result.push(employees[i])
-			}
-		}
-	}
+	var result = employees.filter(function(a) {
+		return a.salary > 15000 && a.department === "GUI";
+	  });
+
 	result.sort(function(a,b)
 	{
 		return new Date(a.birthday) - new Date(b.birthday);
 	})
 
-		
   return result;
  
 }
@@ -44,19 +35,12 @@ function yourFunction(employees)
 function myFunction(employees)
 {	
 	const resultFin = [];
-	const resultName = [];
-	for(let i = 0; i < employees.length; i++)
-	{
-		if(employees[i].gender == "female")
-		{
-			resultName.push(employees[i])
-		}
-	}
+
+	var resultName = employees.filter(a => a.gender === "female");
+
 	resultName.sort(function(a,b)
 	{
-		if ( a.name < b.name ) return -1;
-		if ( a.name < b.name ) return 1;
-		
+		return (a.name.localeCompare(b.name))
 	})
 	for(let i = 0; i < resultName.length-1; i++)
 	{
