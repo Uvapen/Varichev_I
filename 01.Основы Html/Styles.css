@@ -1,0 +1,97 @@
+.header 
+{
+     background-color: black;
+}
+
+.body
+{
+    margin: 0px;
+}
+
+.headerMainTable
+{
+    width: 100%;
+    height: "100px";
+}
+
+.searchCell
+{
+    padding-right: 150px;
+}
+
+.button
+{
+    background: red; 
+    color: #fff; 
+    border: none; 
+    padding-bottom: 20px; 
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-bottom: 1rem;
+    font-size: 3ch;
+    cursor: pointer;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid red;   
+}
+
+.button:hover
+{
+    background-color:lightcoral;
+    border: 2px solid lightcoral; 
+}
+
+.button:active
+{
+    background: red;
+    border: 2px solid black;
+}
+
+button:focus
+{
+    border: 2px solid black;
+}
+
+.sell-card
+{
+    text-align: center;
+    padding-top: 75px;
+}
+
+.Name
+{
+    color: white;
+}
+
+.footer
+{
+    background-color: black;
+}
+
+.footer-left
+{
+    padding-left: 50px;
+    vertical-align: bottom;
+    color: white;
+}
+
+.footer-center
+{
+    padding-left: 320px;
+    text-align: center;
+}
+
+.footer-right
+{
+    text-align: right;
+    vertical-align: bottom;
+    padding-right: 50px;
+    color: white;
+}
+
+.page-numbers
+{
+    color: gray;
+    text-align: center;
+}
