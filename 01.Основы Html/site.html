@@ -8,6 +8,7 @@
         <meta name="viewport" content='width=1000' />
         <link rel="icon" type="image/x-icon" href="img/favicon.ico">
         <link rel="stylesheet" href="Styles.css">
+        <script src="test.js" async></script>
     </head>
     <body class="body">
         <header class="header">
@@ -52,12 +53,15 @@
                     <td>
                         <table align="right">
                             <tr>
-                                <td width>
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <td>
+                                    <button data-model-target="#basket" class="open-basket"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3333 38.3333C15.1743 38.3333 16.6667 36.8409 16.6667 35C16.6667 33.1591 15.1743 31.6667 13.3333 31.6667C11.4924 31.6667 10 33.1591 10 35C10 36.8409 11.4924 38.3333 13.3333 38.3333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M33.3333 38.3333C35.1743 38.3333 36.6667 36.8409 36.6667 35C36.6667 33.1591 35.1743 31.6667 33.3333 31.6667C31.4924 31.6667 30 33.1591 30 35C30 36.8409 31.4924 38.3333 33.3333 38.3333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M9.44996 10H38.3333L35.5333 23.9833C35.2187 25.5671 33.8143 26.6976 32.2 26.6667H14.5833C12.8991 26.681 11.4689 25.4366 11.25 23.7667L8.71663 4.56667C8.49933 2.90933 7.08815 1.6692 5.41663 1.66667H1.66663" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
+                                        </svg></button>        
+                                </td>
+                                <td class="round">
+                                    <button class="button2" >0</button>
                                         
                                 </td>
                                 <td width=10%>
@@ -89,25 +93,56 @@
             </table>          
         </header>
         <main>
+            <div class="basket" id="basket">
+                <div class="basket-header">
+                    <div>В вашей корзине n товаров</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="basket-main">
+                    <div class="cart-row">
+                        <span class="cart-item cart-header cart-column">ITEM</span>
+                        <span class="cart-price cart-header cart-column">PRICE</span>
+                        <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                    </div>
+                    <div class="cart-items">
+                    </div>
+                    <div class="cart-total">
+                        <strong class="cart-total-title">Total</strong>
+                        <span class="cart-total-price">$0</span>
+                    </div>
+                </div>
+                <div class="basket=footer">
+                    
+                </div>
+            </div>
+            <div id="overlay"></div>
             <table align="center">
                 <tr>
                     <td class="sell-card">
-                        <img src="img/hoody/2018-Naruto-anime-Hoodies-3D-Men-sudadera-Sasuke-Autumn-Harajuku-Kakashi-3D-Cartoon-Print-Men-s-1.jpg" width="500px" height="500px">
-                        <p>Naruto Hoodies Men 3D Printed</p>
-                        <p>2500р</p>  
-                        <p><button class="button">Купить</button></p>  
+                        <div class="cart">  
+                            <div class="item">
+                                <img class="item-img" src="img/hoody/2018-Naruto-anime-Hoodies-3D-Men-sudadera-Sasuke-Autumn-Harajuku-Kakashi-3D-Cartoon-Print-Men-s-1.jpg">
+                                <div class="title">Naruto Hoodies Men 3D Printed</div>
+                                <div class="price">2500р</div>  
+                                <button cart-add-button class="button" onclick="updateCounter()">Купить</button>
+                            </div>
+                        </div>  
                     </td>
                     <td class="sell-card">
-                        <img src="img/hoody/201902141008093671431.jpg" width="500px" height="500px">
-                        <p>Naruto Hoodies Men 3D Printed</p>
-                        <p>2500р</p>
-                        <p><button class="button">Купить</button></p> 
+                        <div class="cart">  
+                            <div class="item">
+                                <img class="item-img" src="img/hoody/201902141008093671431.jpg">
+                                <div class="title">Naruto Hoodies Men 3D Printed</div>
+                                <div class="price">2500р</div>  
+                                <button cart-add-button class="button" onclick="updateCounter()">Купить</button>
+                            </div>
+                        </div>
                     </td>
                     <td class="sell-card">
                         <img src="img/hoody/425971_source_1563382441.webp" width="500px" height="500px">
                         <p>Naruto Hoodies Men 3D Printed</p>
                         <p>2500р</p>
-                        <p><button class="button">Купить</button></p> 
+                        <p><button class="button" onclick="addProduct()">Купить</button></p> 
                     </td>
                 </tr>
                 <tr>
@@ -115,19 +150,19 @@
                         <img src="img/hoody/61Y5hNLzyqL._AC_UX569_.jpg" width="500px" height="500px">
                         <p>Weimisi Assassination Classroom Anime</p>
                         <p>1500р</p>
-                        <p><button class="button">Купить</button></p> 
+                        <p><button class="button" onclick="addProduct()">Купить</button></p> 
                     </td>
                     <td class="sell-card">
                         <img src="img/hoody/Anime-Hoodie-Naruto-Hooded-3d-Sweatshirts-Pullover-Men-Women-Tops-Pocket-Hoodies-Streetwear-Fall-Clothing-M__80196.1563398678.webp" width="500px" height="500px">
                         <p>Naruto Hoodies Men 3D Printed</p>
                         <p>2000р</p>
-                        <p><button class="button">Купить</button></p> 
+                        <p><button class="button" onclick="addProduct()">Купить</button></p> 
                     </td>
                     <td class="sell-card">
                         <img src="img/hoody/hollow-avatar-anime-hoodie-bleach-anime-jacket-hoodie-otakuform-anime-hoodies-6614587539556_1024x1024.jpg" width="500px" height="500px">
                         <p>Hollow Avatar Anime Hoodie</p>
                         <p>1200р</p>
-                        <p><button class="button">Купить</button></p> 
+                        <p><button class="button" onclick="addProduct()">Купить</button></p> 
                     </td>
                 </tr>
                 <tr>
