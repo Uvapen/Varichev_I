@@ -16,36 +16,36 @@ openModelButtons.forEach(button => {
         const model = document.querySelector(button.dataset.modelTarget);
         openModel(model);
     })
-})
+});
 
 closeModelButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const model = button.closest('.basket')
+        const model = button.closest('.basket');
         closeModel(model);
     })
-})
+});
 
 overlay.addEventListener('click', () => {
-    const models = document.querySelectorAll('.basket.active')
+    const models = document.querySelectorAll('.basket.active');
     models.forEach(model => {
         closeModel(model);
     })
-})
+});
 
 function openModel(model) {
-    if (model == null) return
+    if (model == null) return;
     model.classList.add('active');
     overlay.classList.add('active');
 }
 
 function closeModel(model) {
-    if (model == null) return
+    if (model == null) return;
     model.classList.remove('active');
     overlay.classList.remove('active');
 }
 
 function findItems() {
-    var addToCartButton = document.querySelectorAll('[cart-add-button]');
+    var addToCartButton = document.querySelectorAll('[data-cart-add-button]');
     addToCartButton.forEach(button => {
         button.addEventListener('click', () => {
         var shopItem = button.parentElement;
