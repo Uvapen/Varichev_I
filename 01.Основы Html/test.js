@@ -1,9 +1,11 @@
 var counter = 1;
-var itemCounter = 0;
+var ItemCount = document.getElementById('basket-count-items');
 
 function updateCounter() {
+    var text = "В вашей корзине " + counter + " товаров";
     document.querySelector(".button-counter").style. background = "orange";
     document.querySelector(".button-counter").innerText = counter;
+    ItemCount.innerText = text 
     counter++;
 }
 
@@ -14,7 +16,11 @@ const overlay = document.getElementById('overlay');
 openModelButtons.forEach(button => {
     button.addEventListener('click', () => {
         const model = document.querySelector(button.dataset.modelTarget);
-        openModel(model);
+        const loader = document.getElementById('loader');
+        openLoader(loader);
+        setTimeout(closeLoader, 4000, loader);
+        setTimeout(openModel, 4000, model);
+        console.log(loader);
     })
 });
 
@@ -38,6 +44,16 @@ function openModel(model) {
     overlay.classList.add('active');
 }
 
+function openLoader(loader) {
+    if (loader == null) return;
+    loader.classList.add('active')
+}
+
+function closeLoader(loader) {
+    if (loader == null) return;
+    loader.classList.remove('active')
+}
+
 function closeModel(model) {
     if (model == null) return;
     model.classList.remove('active');
@@ -53,11 +69,8 @@ function findItems() {
         var price = shopItem.querySelector('.price').innerText;
         var img = shopItem.querySelector('.item-img').src;
         addItemToCart (title, price, img);
-        console.log(title, price, img);
         })
-    
-    })
-     
+    }) 
 }
 
 function addItemToCart (title, price, img) {

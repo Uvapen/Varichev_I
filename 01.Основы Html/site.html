@@ -33,7 +33,7 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M33.3333 38.3333C35.1743 38.3333 36.6667 36.8409 36.6667 35C36.6667 33.1591 35.1743 31.6667 33.3333 31.6667C31.4924 31.6667 30 33.1591 30 35C30 36.8409 31.4924 38.3333 33.3333 38.3333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M9.44996 10H38.3333L35.5333 23.9833C35.2187 25.5671 33.8143 26.6976 32.2 26.6667H14.5833C12.8991 26.681 11.4689 25.4366 11.25 23.7667L8.71663 4.56667C8.49933 2.90933 7.08815 1.6692 5.41663 1.66667H1.66663" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg></button>        
-                    <button class="button-counter" >0</button>
+                    <button class="button-counter" ></button>
                     <svg class="bell" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.33337 27.3333C2.78109 27.3333 2.33337 27.781 2.33337 28.3333C2.33337 28.8856 2.78109 29.3333 3.33337 29.3333V27.3333ZM8.33337 15L7.33337 15V15H8.33337ZM31.6667 15L32.6667 15L31.6667 15ZM22.8834 35L23.7484 35.5018C23.9278 35.1924 23.9284 34.8108 23.7499 34.5009C23.5714 34.191 23.241 34 22.8834 34V35ZM17.1167 35V34C16.7591 34 16.4287 34.191 16.2502 34.5009C16.0717 34.8108 16.0723 35.1924 16.2517 35.5018L17.1167 35ZM36.6667 27.3333H3.33337V29.3333H36.6667V27.3333ZM3.33337 29.3333C6.64708 29.3333 9.33337 26.647 9.33337 23.3333H7.33337C7.33337 25.5425 5.54251 27.3333 3.33337 27.3333V29.3333ZM9.33337 23.3333V15H7.33337V23.3333H9.33337ZM9.33337 15C9.33337 9.10896 14.109 4.33333 20 4.33333V2.33333C13.0044 2.33333 7.33337 8.00439 7.33337 15L9.33337 15ZM20 4.33333C25.8911 4.33333 30.6667 9.10896 30.6667 15L32.6667 15C32.6667 8.00439 26.9956 2.33333 20 2.33333V4.33333ZM30.6667 15V23.3333H32.6667V15H30.6667ZM30.6667 23.3333C30.6667 26.647 33.353 29.3333 36.6667 29.3333V27.3333C34.4576 27.3333 32.6667 25.5425 32.6667 23.3333H30.6667ZM22.0184 34.4982C21.601 35.2178 20.832 35.6608 20.0001 35.6608V37.6608C21.545 37.6608 22.9732 36.8382 23.7484 35.5018L22.0184 34.4982ZM20.0001 35.6608C19.1681 35.6608 18.3992 35.2178 17.9817 34.4982L16.2517 35.5018C17.0269 36.8382 18.4551 37.6608 20.0001 37.6608V35.6608ZM17.1167 36H22.8834V34H17.1167V36Z" fill="white"/>
                         </svg>
@@ -49,15 +49,10 @@
         <main>
             <div class="basket" id="basket">
                 <div class="basket-header">
-                    <div>В вашей корзине n товаров</div>
+                    <div class="basket-count-items" id="basket-count-items"></div>
                     <button data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="basket-main">
-                    <!-- <div class="cart-row">
-                        <span class="cart-item cart-header cart-column">ITEM</span>
-                        <span class="cart-price cart-header cart-column">PRICE</span>
-                        <span class="cart-quantity cart-header cart-column">QUANTITY</span>
-                    </div> -->
                     <div class="cart-items">
                         <div class="cart-item">
                             <!-- <img class="cart-img" src="img/hoody/2018-Naruto-anime-Hoodies-3D-Men-sudadera-Sasuke-Autumn-Harajuku-Kakashi-3D-Cartoon-Print-Men-s-1.jpg">
@@ -65,16 +60,24 @@
                             <span class= "cart-price">2500р</span>   -->
                         </div>  
                     </div>
-                    <!-- <div class="cart-total">
-                        <strong class="cart-total-title">Total</strong>
-                        <span class="cart-total-price">$0</span>
-                    </div> -->
                 </div>
                 <div class="basket=footer">
                     
                 </div>
             </div>
             <div id="overlay"></div>
+            <div class="loader" id="loader">
+                <div id="fountainG">
+                    <div id="fountainG_1" class="fountainG"></div>
+                    <div id="fountainG_2" class="fountainG"></div>
+                    <div id="fountainG_3" class="fountainG"></div>
+                    <div id="fountainG_4" class="fountainG"></div>
+                    <div id="fountainG_5" class="fountainG"></div>
+                    <div id="fountainG_6" class="fountainG"></div>
+                    <div id="fountainG_7" class="fountainG"></div>
+                    <div id="fountainG_8" class="fountainG"></div>
+                </div>
+            </div>
             <div class="items"> 
                 <div class="item">
                     <img class="item-img" src="img/hoody/2018-Naruto-anime-Hoodies-3D-Men-sudadera-Sasuke-Autumn-Harajuku-Kakashi-3D-Cartoon-Print-Men-s-1.jpg">
