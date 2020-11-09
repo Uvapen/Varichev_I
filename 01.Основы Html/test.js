@@ -26,8 +26,8 @@ function updateCounter() {
 // });
 
 function openPopUp() {
-    openLoader(loader);
-    setTimeout(openBasket, 4000 , basket); 
+    openLoader();
+    setTimeout(openBasket, 4000); 
 }
 
 function closePopUp() {
@@ -49,21 +49,21 @@ overlay.addEventListener('click', () => {
     })
 });
 
-function openBasket(basket) {
+function openBasket() {
     basket.classList.add('active');
     overlay.classList.add('active');
     closeLoader(loader);
 }
 
-function openLoader(loader) {
+function openLoader() {
     loader.classList.add('active')
 }
 
-function closeLoader(loader) {
+function closeLoader() {
     loader.classList.remove('active')
 }
 
-function closeBasket(basket) {
+function closeBasket() {
     basket.classList.remove('active');
     overlay.classList.remove('active');
 }
