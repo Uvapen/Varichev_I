@@ -1,5 +1,10 @@
 var counter = 1;
 var ItemCount = document.getElementById('basket-count-items');
+const overlay = document.getElementById('overlay');
+const basket = document.getElementById('basket');
+const loader = document.getElementById('loader');
+// const openModelButton = document.querySelectorAll('[data-model-target]');
+// const closeModelButtons = document.querySelectorAll('[data-close-button]');
 
 function updateCounter() {
     var text = "В вашей корзине " + counter + " товаров";
@@ -8,10 +13,6 @@ function updateCounter() {
     ItemCount.innerText = text; 
     counter++;
 }
-
-// const openModelButton = document.querySelectorAll('[data-model-target]');
-// const closeModelButtons = document.querySelectorAll('[data-close-button]');
-const overlay = document.getElementById('overlay');
 
 // openModelButtons.forEach(button => {
 //     button.addEventListener('click', () => {
@@ -25,10 +26,8 @@ const overlay = document.getElementById('overlay');
 // });
 
 function openPopUp() {
-    const basket = document.getElementById('basket');
-    const loader = document.getElementById('loader');
     openLoader(loader);
-    setTimeout(openBasket, 4000 , basket, loader); 
+    setTimeout(openBasket, 4000 , basket); 
 }
 
 function closePopUp() {
@@ -45,30 +44,26 @@ function closePopUp() {
 
 overlay.addEventListener('click', () => {
     const modals = document.querySelectorAll('.basket.active');
-    modals.forEach(modal => {
-        closeModel(modal);
+    modals.forEach(modals => {
+        closeBasket(modals);
     })
 });
 
-function openBasket(basket, loader) {
-    if (basket == null) return;
-    closeLoader(loader);
+function openBasket(basket) {
     basket.classList.add('active');
     overlay.classList.add('active');
+    closeLoader(loader);
 }
 
 function openLoader(loader) {
-    if (loader == null) return;
     loader.classList.add('active')
 }
 
 function closeLoader(loader) {
-    if (loader == null) return;
     loader.classList.remove('active')
 }
 
 function closeBasket(basket) {
-    if (basket == null) return;
     basket.classList.remove('active');
     overlay.classList.remove('active');
 }
