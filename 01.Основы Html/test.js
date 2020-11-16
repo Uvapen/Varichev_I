@@ -3,16 +3,18 @@ var ItemCount = document.getElementById('basket-count-items');
 const overlay = document.getElementById('overlay');
 const basket = document.getElementById('basket');
 const loader = document.getElementById('loader');
+const menu = document.querySelector('.menu');
+const overlayMenu = document.querySelector('.overlay-menu');
 // const openModelButton = document.querySelectorAll('[data-model-target]');
 // const closeModelButtons = document.querySelectorAll('[data-close-button]');
 
-function updateCounter() {
-    var text = "В вашей корзине " + counter + " товаров";
-    document.querySelector(".button-counter").style. background = "orange";
-    document.querySelector(".button-counter").innerText = counter;
-    ItemCount.innerText = text; 
-    counter++;
-}
+// function updateCounter() {
+//     let text = "В вашей корзине " + counter + " товаров";
+//     document.querySelector(".button-counter").style. background = "orange";
+//     document.querySelector(".button-counter").innerText = counter;
+//     ItemCount.innerText = text; 
+//     counter++;
+// }
 
 // openModelButtons.forEach(button => {
 //     button.addEventListener('click', () => {
@@ -31,8 +33,7 @@ function openPopUp() {
 }
 
 function closePopUp() {
-    const basket = document.getElementById('basket');
-    closeBasket(basket);
+    closeBasket();
 }
 
 // closeModelButtons.forEach(button => {
@@ -52,7 +53,7 @@ overlay.addEventListener('click', () => {
 function openBasket() {
     basket.classList.add('active');
     overlay.classList.add('active');
-    closeLoader(loader);
+    closeLoader();
 }
 
 function openLoader() {
@@ -84,6 +85,11 @@ function findItems() {
 function addItemToCart (title, price, img) {
     var cartRow = document.createElement('div');
     var cartItems = document.getElementsByClassName('cart-item')[0];
+    let text = "В вашей корзине " + counter + " товаров";
+    document.querySelector(".button-counter").style. background = "orange";
+    document.querySelector(".button-counter").innerText = counter;
+    ItemCount.innerText = text; 
+    counter++;
     var cartContent = ` <img class="cart-img" src="${img}">
                         <span class="cart-title">${title}</span>
                         <span class= "cart-price">${price}</span>  
@@ -92,6 +98,16 @@ function addItemToCart (title, price, img) {
     cartItems.append(cartRow);
 }
 
+
+function openMenu() {
+    menu.classList.add('active');
+    overlayMenu.classList.add('active');
+}
+
+overlayMenu.addEventListener('click', () => {
+    menu.classList.remove('active')
+    overlayMenu.classList.remove('active');
+})
 // var add = document.querySelectorAll('[cart-add-button]')
 // console.log(add);
 findItems();

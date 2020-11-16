@@ -1,0 +1,70 @@
+.menu-button {
+    outline: none;
+    border: 0px;
+    cursor: pointer;
+    background-color: black;
+}
+
+.menu-button:hover {
+    outline: none;
+    border: 0px;
+}
+
+.menu-button:active {
+    outline: none;
+    border: 0px;
+}
+
+.menu-button:focus {
+    outline: none;
+    border: 0px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: 0.3s;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    background-color: gray;
+    z-index: 9;
+    padding: 40px;
+}
+
+.menu.active {
+    transform: translateX(0%);
+    transition: 0.3s;
+}
+
+.menu-main {
+    display: none;
+}
+
+.overlay-menu {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.overlay-menu.active {
+    pointer-events: all;
+}
+
+@media (max-width: 960px) {
+    .menu-main {
+        display: block;
+    }
+
+}
+
+@media (max-width: 1900px) {
+
+}
