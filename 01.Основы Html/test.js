@@ -86,7 +86,7 @@ function addItemToCart (title, price, img) {
     var cartRow = document.createElement('div');
     var cartItems = document.getElementsByClassName('cart-item')[0];
     let text = "В вашей корзине " + counter + " товаров";
-    document.querySelector(".button-counter").style. background = "orange";
+    document.querySelector(".button-counter").style.visibility = "visible"; 
     document.querySelector(".button-counter").innerText = counter;
     ItemCount.innerText = text; 
     counter++;
