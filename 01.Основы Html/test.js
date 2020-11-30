@@ -1,10 +1,10 @@
 var counter = 1;
-var ItemCount = document.getElementById('basket-count-items');
-const overlay = document.getElementById('overlay');
-const basket = document.getElementById('basket');
-const loader = document.getElementById('loader');
-const menu = document.querySelector('.menu');
-const overlayMenu = document.querySelector('.overlay-menu');
+var ItemCount = document.querySelector('.basket-header__count-items');
+const overlay = document.querySelector('.overlay');
+const basket = document.querySelector('.basket');
+const loader = document.querySelector('.loader');
+const menu = document.querySelector('.header-left__menu-nav');
+const overlayMenu = document.querySelector('.header-left__overlay');
 // const openModelButton = document.querySelectorAll('[data-model-target]');
 // const closeModelButtons = document.querySelectorAll('[data-close-button]');
 
@@ -70,30 +70,31 @@ function closeBasket() {
 }
 
 function findItems() {
-    var addToCartButton = document.querySelectorAll('[data-cart-add-button]');
+    var addToCartButton = document.querySelectorAll('.cart-item__buy-button');
     addToCartButton.forEach(button => {
         button.addEventListener('click', () => {
         var shopItem = button.parentElement;
-        var title = shopItem.querySelector('.title').innerText;
-        var price = shopItem.querySelector('.price').innerText;
-        var img = shopItem.querySelector('.item-img').src;
+        var title = shopItem.querySelector('.cart-item__title').innerText;
+        var price = shopItem.querySelector('.cart-item__price').innerText;
+        var img = shopItem.querySelector('.cart-item__img').src;
         addItemToCart (title, price, img);
         })
     }) 
 }
 
 function addItemToCart (title, price, img) {
-    var cartRow = document.createElement('div');
-    var cartItems = document.getElementsByClassName('cart-item')[0];
+    let cartRow = document.createElement('div.');
+    const cartItems = document.getElementsByClassName('basket__cart-items')[0];
     let text = "В вашей корзине " + counter + " товаров";
-    document.querySelector(".button-counter").style.visibility = "visible"; 
-    document.querySelector(".button-counter").innerText = counter;
+    cartRow.classList.add('basket__cart-item');
+    document.querySelector(".header-right__button-counter").style.visibility = "visible"; 
+    document.querySelector(".header-right__button-counter").innerText = counter;
     ItemCount.innerText = text; 
     counter++;
-    var cartContent = ` <img class="cart-img" src="${img}">
-                        <span class="cart-title">${title}</span>
-                        <span class= "cart-price">${price}</span>  
-                        `
+    const cartContent = `<img class="basket__cart-img" src="${img}">
+                        <span class="basket__cart-title">${title}</span>
+                        <span class= "basket__cart-price">${price}</span>
+                        <button class="remove-button">Удалить</button>`  
     cartRow.innerHTML = cartContent;
     cartItems.append(cartRow);
 }
@@ -111,3 +112,4 @@ overlayMenu.addEventListener('click', () => {
 // var add = document.querySelectorAll('[cart-add-button]')
 // console.log(add);
 findItems();
+console.log(document.querySelectorAll('.cart-item__buy-button'));
