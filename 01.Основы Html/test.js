@@ -1,5 +1,6 @@
-var counter = 1;
-var ItemCount = document.querySelector('.basket-header__count-items');
+let counter = 1;
+let Map_article = 1;
+let ItemCount = document.querySelector('.basket-header__count-items');
 const overlay = document.querySelector('.overlay');
 const basket = document.querySelector('.basket');
 const loader = document.querySelector('.loader');
@@ -70,14 +71,29 @@ function closeBasket() {
 }
 
 function findItems() {
-    var addToCartButton = document.querySelectorAll('.cart-item__buy-button');
+    let addToCartButton = document.querySelectorAll('.cart-item__buy-button');
     addToCartButton.forEach(button => {
         button.addEventListener('click', () => {
-        var shopItem = button.parentElement;
-        var title = shopItem.querySelector('.cart-item__title').innerText;
-        var price = shopItem.querySelector('.cart-item__price').innerText;
-        var img = shopItem.querySelector('.cart-item__img').src;
+        let shopItem = button.parentElement;
+        let title = shopItem.querySelector('.cart-item__title').innerText;
+        let price = shopItem.querySelector('.cart-item__price').innerText;
+        let img = shopItem.querySelector('.cart-item__img').src;
         addItemToCart (title, price, img);
+        const Item_obj = {
+            Name:`${title}`,
+            Count:1,
+            Price:`${price}`,
+        }
+        for(let item of Item_map.values()){
+            if(item.Name==title)
+            {
+                item.Count++;
+                break
+            }
+        } 
+        Item_map.set(Map_article,Item_obj)
+        Map_article++; 
+        console.log(Item_map);
         })
     }) 
 }
@@ -112,4 +128,19 @@ overlayMenu.addEventListener('click', () => {
 // var add = document.querySelectorAll('[cart-add-button]')
 // console.log(add);
 findItems();
-console.log(document.querySelectorAll('.cart-item__buy-button'));
+// console.log(document.querySelectorAll('.cart-item__buy-button'));
+
+let Item_map = new Map ([
+    [1,2]
+])
+// const qwr = {
+//     user: 123,
+//     tte:234,
+// };
+// let map1 = new Map ([
+//     [qwr,234]
+// ])
+
+// for(let obj of map1.keys()){
+//     console.log(obj)
+// }
